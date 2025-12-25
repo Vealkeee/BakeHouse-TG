@@ -3,7 +3,7 @@ import asyncio
 import time
 import re
 
-from playwright.async_api import async_playwright, expect
+from playwright.async_api import async_playwright
 
 class get_menu():
     async def get_bakes():
