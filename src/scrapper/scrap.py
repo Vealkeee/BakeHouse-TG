@@ -1,28 +1,39 @@
 import requests
+import asyncio
 import time
 import re
 
-from playwright.sync_api import sync_playwright, expect
+from playwright.async_api import async_playwright, expect
 
-def sync():
-    with sync_playwright() as s:
-        browser = s.chromium.launch()
-        page = browser.new_page()
-        page.goto('https://www.greggs.com/menu?category=savouries-bakes')
-        page.screenshot(path='./img/bakes.png', full_page=True)
+class get_menu():
+    async def get_bakes():
+            async with async_playwright() as s:
+                browser = await s.chromium.launch()
+                page = await browser.new_page()
+                await page.goto('https://www.greggs.com/menu?category=savouries-bakes')
+                await page.screenshot(path='./img/bakes.png', full_page=True)
 
-        bakes = page.get_by_text("Bake").all_inner_texts()
+                bakes = await page.get_by_text("Bake").all_inner_texts()
 
-        for _ in range(3):
-            bakes.pop(0)
+                for _ in range(3):
+                    bakes.pop(0)
 
-        for i in range(len(bakes)):
-            print(bakes[i])
+                await browser.close()
 
-        browser.close()
+                return bakes
 
-sync()
+    async def get_pizza():
+            async with async_playwright() as s:
+                browser = await s.chromium.launch()
+                page = await browser.new_page()
+                await page.goto('https://www.greggs.com/menu?category=savouries-bakes')
+                await page.screenshot(path='./img/bakes.png', full_page=True)
 
+                pizza = await page.get_by_text("Pizza").all_inner_texts()
+
+                await browser.close()
+
+                return pizza
 # If holly playwright won't help:
 
 # from bs4 import BeautifulSoup

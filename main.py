@@ -6,8 +6,8 @@ from aiogram import Bot, Dispatcher
 from dotenv import load_dotenv
 from rich.console import Console
 
+from src.scrapper.scrap import get_menu
 from src.Handlers import start
-
 
 load_dotenv()
 console = Console()
@@ -23,7 +23,7 @@ async def main():
     console.print(f"[bold green]BOT ID: {bot.id}\n" \
                    f"BOT TOKEN: {TOKEN}[bold green]\n" \
                    "The bot is now ready to use!")
-    
+
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
 
