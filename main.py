@@ -2,12 +2,14 @@ import os
 import aiogram
 import asyncio
 
+
 from aiogram import Bot, Dispatcher
 from dotenv import load_dotenv
 from rich.console import Console
 
-from src.scrapper.scrap import get_menu
+from src.Handlers import router as main_router
 from src.Handlers import start
+from src.Handlers.info import about
 
 load_dotenv()
 console = Console()
@@ -16,9 +18,7 @@ TOKEN = os.getenv("TOKEN")
 async def main():
     bot = Bot(TOKEN)
     dp = Dispatcher()
-    dp.include_router(
-        start.router
-    )
+    dp.include_router(main_router)
 
     console.print(f"[bold green]BOT ID: {bot.id}\n" \
                    f"BOT TOKEN: {TOKEN}[bold green]\n" \
