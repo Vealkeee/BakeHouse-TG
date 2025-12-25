@@ -30,9 +30,8 @@ async def aboutMe(call: CallbackQuery):
                                 "🕒 Hours: Mon–Sat: 7:00 AM – 6:00 PM | Sun: 8:00 AM – 2:00 PM", reply_markup=info_back)
     await call.answer()
 
-@router.callback_query(F.data == "back")
+@router.callback_query(F.data == "info_back")
 async def backFunc(call: CallbackQuery):
-    await call.message.answer("Going back to the previous option!")
     await call.message.edit_text("<b>⚙️ INFO</b>\n\n" \
                               "Choose following option:\n\n" \
                               "1. About - contact, bakery info.\n" \

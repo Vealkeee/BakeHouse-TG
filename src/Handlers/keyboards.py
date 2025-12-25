@@ -31,7 +31,7 @@ info_kb = InlineKeyboardMarkup(
 info_back = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="❌ Previous", callback_data="back")
+            InlineKeyboardButton(text="❌ Previous", callback_data="info_back")
         ]
     ]
 )
@@ -50,10 +50,11 @@ categories = InlineKeyboardMarkup(
 Food_category = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="🥐 Bakes", callback_data="bakes")
+            InlineKeyboardButton(text="🥐 Bakes", callback_data="bakes"),
+            InlineKeyboardButton(text="🥖 Pizza", callback_data="pizza")
         ],
         [
-            InlineKeyboardButton(text="🥖 Pizza", callback_data="pizza")
+            InlineKeyboardButton(text="❌ Previous", callback_data="menu_back")
         ]
     ]
 )
@@ -61,10 +62,11 @@ Food_category = InlineKeyboardMarkup(
 Drinks_category = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="☕ Drinks", callback_data="drink")
+            InlineKeyboardButton(text="☕ Drinks", callback_data="drink"),
+            InlineKeyboardButton(text="🍫 Snacks", callback_data="Snacks")
         ],
         [
-            InlineKeyboardButton(text="🍫 Snacks", callback_data="Snacks")
+            InlineKeyboardButton(text="❌ Previous", callback_data="menu_back")
         ]
     ]
 )
