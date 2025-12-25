@@ -5,7 +5,7 @@ import re
 
 from playwright.async_api import async_playwright
 
-class get_menu():
+class get_assorti():
     async def get_bakes():
             async with async_playwright() as s:
                 browser = await s.chromium.launch()
